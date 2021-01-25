@@ -1,0 +1,16 @@
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\LocalGovtReporterAPI
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\appsettings.Development.json
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\appsettings.json
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\aws-lambda-tools-defaults.json
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\LocalGovtReporterAPI.dll
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\LocalGovtReporterAPI.deps.json
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\LocalGovtReporterAPI.runtimeconfig.json
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\LocalGovtReporterAPI.pdb
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.APIGatewayEvents.dll
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.ApplicationLoadBalancerEvents.dll
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.AspNetCoreServer.dll
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.Core.dll
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.Logging.AspNetCore.dll
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\AWSSDK.Core.dll
+C:\Users\SteveBosilovatz\Desktop\Personal\local-govt-reporter-api\LocalGovtReporterAPI\bin\Release\netcoreapp3.1\publish\AWSSDK.DynamoDBv2.dll

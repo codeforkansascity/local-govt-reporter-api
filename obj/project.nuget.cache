@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "dgSpecHash": "k+yzCLlWNHWK0rChk0VI6ulgXS1LySqDjvcI9zvXX06Qv7aJpyrzsB+W3F1nSWG1MueG+0oLMQzmeXJ67Fo3aw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SteveBosilovatz\\Desktop\\Personal\\local-govt-reporter-api\\LocalGovtReporterAPI\\LocalGovtReporterAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\amazon.lambda.apigatewayevents\\2.4.0\\amazon.lambda.apigatewayevents.2.4.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\amazon.lambda.applicationloadbalancerevents\\2.1.0\\amazon.lambda.applicationloadbalancerevents.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\amazon.lambda.aspnetcoreserver\\5.3.0\\amazon.lambda.aspnetcoreserver.5.3.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\amazon.lambda.core\\1.2.0\\amazon.lambda.core.1.2.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\amazon.lambda.logging.aspnetcore\\3.1.0\\amazon.lambda.logging.aspnetcore.3.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\amazon.lambda.serialization.systemtextjson\\2.1.0\\amazon.lambda.serialization.systemtextjson.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\awssdk.core\\3.5.2\\awssdk.core.3.5.2.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\awssdk.dynamodbv2\\3.5.4.20\\awssdk.dynamodbv2.3.5.4.20.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.configuration\\2.1.0\\microsoft.extensions.configuration.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\2.1.0\\microsoft.extensions.configuration.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.configuration.binder\\2.1.0\\microsoft.extensions.configuration.binder.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.logging\\2.1.0\\microsoft.extensions.logging.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.1.0\\microsoft.extensions.logging.abstractions.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.options\\2.1.0\\microsoft.extensions.options.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.primitives\\2.1.0\\microsoft.extensions.primitives.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.0\\system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\3.1.11\\microsoft.netcore.app.host.linux-x64.3.1.11.nupkg.sha512"
+  ],
+  "logs": []
+}
