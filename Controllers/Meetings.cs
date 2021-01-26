@@ -13,7 +13,7 @@ namespace LocalGovtReporterAPI.Controllers
     public class Meetings : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string county, string startDate, string endDate)
+        public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string meetingType, string county, string startDate, string endDate)
         {
             var credentials = new BasicAWSCredentials("accessKey", "secretKey");
             var client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USEast2);
@@ -25,6 +25,8 @@ namespace LocalGovtReporterAPI.Controllers
                 scanFilter.AddCondition("State", ScanOperator.Equal, state);
             if (!string.IsNullOrEmpty(jurisdiction))
                 scanFilter.AddCondition("Jurisdiction", ScanOperator.Equal, jurisdiction);
+            if (!string.IsNullOrEmpty(meetingType))
+                scanFilter.AddCondition("MeetingType", ScanOperator.Equal, meetingType);
             if (!string.IsNullOrEmpty(county))
                 scanFilter.AddCondition("County", ScanOperator.Equal, county);
             if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(endDate))
@@ -32,8 +34,6 @@ namespace LocalGovtReporterAPI.Controllers
 
             ScanOperationConfig config = new ScanOperationConfig()
             {
-                AttributesToGet = new List<string> { "MeetingID", "MeetingDate", "Jurisdiction", "State", "County", "MeetingType" },
-                Select = SelectValues.SpecificAttributes,
                 Filter = scanFilter
             };
 
