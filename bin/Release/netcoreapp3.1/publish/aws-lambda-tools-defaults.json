@@ -14,5 +14,7 @@
     "template"      : "serverless.template",
     "template-parameters" : "",
     "s3-bucket"           : "local-govt-reporter",
-    "stack-name"          : "local-govt-reporter"
+    "stack-name"          : "local-govt-reporter",
+    "function-role"       : "arn:aws:iam::266092293084:role/LambdaDynamoPolicy",
+    "function-name"       : "local-govt-reporter-AspNetCoreFunction-1TJSBKP6Z7523"
 }

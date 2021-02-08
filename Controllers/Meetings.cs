@@ -1,9 +1,8 @@
-﻿using Amazon;
-using Amazon.DynamoDBv2;
+﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
-using Amazon.Runtime;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LocalGovtReporterAPI.Controllers
@@ -13,15 +12,14 @@ namespace LocalGovtReporterAPI.Controllers
     public class Meetings : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string meetingType, string county, string startDate, string endDate)
+        public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string meetingType, string county, string tags, string startDate, string endDate)
         {
-            var credentials = new BasicAWSCredentials("accessKey", "secretKey");
-            var client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USEast2);
+            AmazonDynamoDBClient client = Methods.AWS.GetDynamoDBClient();
 
             Table table = Table.LoadTable(client, "Meeting");
             ScanFilter scanFilter = new ScanFilter();
-
-            if (!string.IsNullOrEmpty(state)) 
+            
+            if (!string.IsNullOrEmpty(state))
                 scanFilter.AddCondition("State", ScanOperator.Equal, state);
             if (!string.IsNullOrEmpty(jurisdiction))
                 scanFilter.AddCondition("Jurisdiction", ScanOperator.Equal, jurisdiction);
@@ -31,10 +29,18 @@ namespace LocalGovtReporterAPI.Controllers
                 scanFilter.AddCondition("County", ScanOperator.Equal, county);
             if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(endDate))
                 scanFilter.AddCondition("MeetingDate", ScanOperator.Between, startDate, endDate);
+            if (!string.IsNullOrEmpty(tags))
+            {
+                List<string> tagsList = tags.Split("|").ToList();
+
+                foreach (string tag in tagsList)
+                    scanFilter.AddCondition("Tags", ScanOperator.Contains, tag);
+            }
 
             ScanOperationConfig config = new ScanOperationConfig()
             {
-                Filter = scanFilter
+                Filter = scanFilter,
+                CollectResults = true
             };
 
             Search search = table.Scan(config);
@@ -47,13 +53,12 @@ namespace LocalGovtReporterAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMeetingAsync(string id)
         {
-            var credentials = new BasicAWSCredentials("accessKey", "secretKey");
-            var client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USEast2);
+            AmazonDynamoDBClient client = Methods.AWS.GetDynamoDBClient();
 
             Table table = Table.LoadTable(client, "Meeting");
             Document document = await table.GetItemAsync(id);
 
-            return Ok(document.ToJsonPretty());
+            return Ok(document.ToJsonPretty());         
         }
     }
 }

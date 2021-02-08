@@ -76,7 +76,7 @@
           "lib/netcoreapp3.1/Amazon.Lambda.Serialization.SystemTextJson.dll": {}
         }
       },
-      "AWSSDK.Core/3.5.2": {
+      "AWSSDK.Core/3.5.2.7": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
@@ -85,10 +85,10 @@
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
         }
       },
-      "AWSSDK.DynamoDBv2/3.5.4.20": {
+      "AWSSDK.DynamoDBv2/3.5.4.26": {
         "type": "package",
         "dependencies": {
-          "AWSSDK.Core": "[3.5.2, 3.6.0)"
+          "AWSSDK.Core": "[3.5.2.7, 3.6.0)"
         },
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {}
@@ -97,223 +97,19 @@
           "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration/2.1.0": {
+      "AWSSDK.Extensions.NETCore.Setup/3.3.101": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "2.1.0"
+          "AWSSDK.Core": "[3.3.100, 3.6.0)",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {}
+          "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Configuration.Abstractions/2.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Configuration.Binder/2.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "2.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
-        }
-      },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/2.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Logging/2.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Binder": "2.1.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.0",
-          "Microsoft.Extensions.Logging.Abstractions": "2.1.0",
-          "Microsoft.Extensions.Options": "2.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Logging.Abstractions/2.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Options/2.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.1.0",
-          "Microsoft.Extensions.Primitives": "2.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Options.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Options.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Primitives/2.1.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Memory": "4.5.0",
-          "System.Runtime.CompilerServices.Unsafe": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll": {}
-        }
-      },
-      "System.IO.Pipelines/4.7.2": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/_._": {}
-        }
-      },
-      "System.Memory/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.1/_._": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/_._": {}
-        }
-      },
-      "System.Runtime.CompilerServices.Unsafe/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
-        }
-      }
-    },
-    ".NETCoreApp,Version=v3.1/linux-x64": {
-      "Amazon.Lambda.APIGatewayEvents/2.4.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/Amazon.Lambda.APIGatewayEvents.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Amazon.Lambda.APIGatewayEvents.dll": {}
-        }
-      },
-      "Amazon.Lambda.ApplicationLoadBalancerEvents/2.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/Amazon.Lambda.ApplicationLoadBalancerEvents.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Amazon.Lambda.ApplicationLoadBalancerEvents.dll": {}
-        }
-      },
-      "Amazon.Lambda.AspNetCoreServer/5.3.0": {
-        "type": "package",
-        "dependencies": {
-          "Amazon.Lambda.APIGatewayEvents": "2.4.0",
-          "Amazon.Lambda.ApplicationLoadBalancerEvents": "2.1.0",
-          "Amazon.Lambda.Core": "1.2.0",
-          "Amazon.Lambda.Logging.AspNetCore": "3.1.0",
-          "Amazon.Lambda.Serialization.SystemTextJson": "2.1.0",
-          "System.IO.Pipelines": "4.7.2"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Amazon.Lambda.AspNetCoreServer.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Amazon.Lambda.AspNetCoreServer.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Amazon.Lambda.Core/1.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Amazon.Lambda.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Amazon.Lambda.Core.dll": {}
-        }
-      },
-      "Amazon.Lambda.Logging.AspNetCore/3.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Amazon.Lambda.Core": "1.2.0",
-          "Microsoft.Extensions.Configuration.Abstractions": "2.1.0",
-          "Microsoft.Extensions.Logging": "2.1.0",
-          "Microsoft.Extensions.Logging.Abstractions": "2.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Amazon.Lambda.Logging.AspNetCore.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Amazon.Lambda.Logging.AspNetCore.dll": {}
-        }
-      },
-      "Amazon.Lambda.Serialization.SystemTextJson/2.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Amazon.Lambda.Core": "1.2.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Amazon.Lambda.Serialization.SystemTextJson.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Amazon.Lambda.Serialization.SystemTextJson.dll": {}
-        }
-      },
-      "AWSSDK.Core/3.5.2": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
-        }
-      },
-      "AWSSDK.DynamoDBv2/3.5.4.20": {
-        "type": "package",
-        "dependencies": {
-          "AWSSDK.Core": "[3.5.2, 3.6.0)"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {}
+          "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll": {}
         }
       },
       "Microsoft.Extensions.Configuration/2.1.0": {
@@ -527,15 +323,15 @@
         "lib/netcoreapp3.1/Amazon.Lambda.Serialization.SystemTextJson.xml"
       ]
     },
-    "AWSSDK.Core/3.5.2": {
-      "sha512": "DF+Og2ABUuwND+whBMkPnJiRefgf0t8rUAKTYdGpa04DYF+S2BgP/TIcf4ABEgd4oIOAZZsdzbtyHOdD7gKfOQ==",
+    "AWSSDK.Core/3.5.2.7": {
+      "sha512": "B4ouBMXvfNmLHxFhI/L5u4SdqeISiGT3b6+rL7renDVC1YzMM1fl6Vlp2mqzTpJm2t+FuQB6gBFdlM64GnNSyg==",
       "type": "package",
-      "path": "awssdk.core/3.5.2",
+      "path": "awssdk.core/3.5.2.7",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "awssdk.core.3.5.2.nupkg.sha512",
+        "awssdk.core.3.5.2.7.nupkg.sha512",
         "awssdk.core.nuspec",
         "lib/net35/AWSSDK.Core.dll",
         "lib/net35/AWSSDK.Core.pdb",
@@ -555,16 +351,16 @@
         "tools/account-management.ps1"
       ]
     },
-    "AWSSDK.DynamoDBv2/3.5.4.20": {
-      "sha512": "97rMhWuvzzjoC5+/ar/g1cCiMu36KSVM0niHe/ALF7ovM9UzidjkdmpLD57kpL8nIdQSr2UCEiQZBK+lltBlEA==",
+    "AWSSDK.DynamoDBv2/3.5.4.26": {
+      "sha512": "kNl4ZWpkqdoc2gueH2sVBLyj8GijpBXx9BqphZJNn2m12JYgwESVt7uIYTZue3HAYjwZhFYIrAxcr15hYDPvig==",
       "type": "package",
-      "path": "awssdk.dynamodbv2/3.5.4.20",
+      "path": "awssdk.dynamodbv2/3.5.4.26",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "analyzers/dotnet/cs/AWSSDK.DynamoDBv2.CodeAnalysis.dll",
-        "awssdk.dynamodbv2.3.5.4.20.nupkg.sha512",
+        "awssdk.dynamodbv2.3.5.4.26.nupkg.sha512",
         "awssdk.dynamodbv2.nuspec",
         "lib/net35/AWSSDK.DynamoDBv2.dll",
         "lib/net35/AWSSDK.DynamoDBv2.pdb",
@@ -583,6 +379,21 @@
         "lib/netstandard2.0/AWSSDK.DynamoDBv2.xml",
         "tools/install.ps1",
         "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.Extensions.NETCore.Setup/3.3.101": {
+      "sha512": "mbFGOX62zG4A/0bIhKy+I3NmNBAwSCKClFl+Y6RzuRj+0cQDBbmH33JMe8x3SWizhoyl+ATm2ldOR1phIFTGvA==",
+      "type": "package",
+      "path": "awssdk.extensions.netcore.setup/3.3.101",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.extensions.netcore.setup.3.3.101.nupkg.sha512",
+        "awssdk.extensions.netcore.setup.nuspec",
+        "lib/netstandard1.3/AWSSDK.Extensions.NETCore.Setup.dll",
+        "lib/netstandard1.3/AWSSDK.Extensions.NETCore.Setup.pdb",
+        "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll",
+        "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.pdb"
       ]
     },
     "Microsoft.Extensions.Configuration/2.1.0": {
@@ -786,8 +597,9 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "AWSSDK.Core >= 3.5.2",
-      "AWSSDK.DynamoDBv2 >= 3.5.4.20",
+      "AWSSDK.Core >= 3.5.2.7",
+      "AWSSDK.DynamoDBv2 >= 3.5.4.26",
+      "AWSSDK.Extensions.NETCore.Setup >= 3.3.101",
       "Amazon.Lambda.AspNetCoreServer >= 5.3.0"
     ]
   },
@@ -833,11 +645,15 @@
         "dependencies": {
           "AWSSDK.Core": {
             "target": "Package",
-            "version": "[3.5.2, )"
+            "version": "[3.5.2.7, )"
           },
           "AWSSDK.DynamoDBv2": {
             "target": "Package",
-            "version": "[3.5.4.20, )"
+            "version": "[3.5.4.26, )"
+          },
+          "AWSSDK.Extensions.NETCore.Setup": {
+            "target": "Package",
+            "version": "[3.3.101, )"
           },
           "Amazon.Lambda.AspNetCoreServer": {
             "target": "Package",
@@ -854,12 +670,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[3.1.11, 3.1.11]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -869,11 +679,6 @@
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "linux-x64": {
-        "#import": []
       }
     }
   }
