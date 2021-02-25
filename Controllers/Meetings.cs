@@ -1,6 +1,7 @@
 ﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,42 +13,57 @@ namespace LocalGovtReporterAPI.Controllers
     public class Meetings : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string meetingType, string county, string tags, string startDate, string endDate)
+        public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string meetingType, string county, string tags, string startDate, string endDate, int start, int length)
         {
-            AmazonDynamoDBClient client = Methods.AWS.GetDynamoDBClient();
-
-            Table table = Table.LoadTable(client, "Meeting");
-            ScanFilter scanFilter = new ScanFilter();
-            
-            if (!string.IsNullOrEmpty(state))
-                scanFilter.AddCondition("State", ScanOperator.Equal, state);
-            if (!string.IsNullOrEmpty(jurisdiction))
-                scanFilter.AddCondition("Jurisdiction", ScanOperator.Equal, jurisdiction);
-            if (!string.IsNullOrEmpty(meetingType))
-                scanFilter.AddCondition("MeetingType", ScanOperator.Equal, meetingType);
-            if (!string.IsNullOrEmpty(county))
-                scanFilter.AddCondition("County", ScanOperator.Equal, county);
-            if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(endDate))
-                scanFilter.AddCondition("MeetingDate", ScanOperator.Between, startDate, endDate);
-            if (!string.IsNullOrEmpty(tags))
+            if (length > 100)
             {
-                List<string> tagsList = tags.Split("|").ToList();
-
-                foreach (string tag in tagsList)
-                    scanFilter.AddCondition("Tags", ScanOperator.Contains, tag);
+                return BadRequest("Items per page may not exceed 100");
             }
-
-            ScanOperationConfig config = new ScanOperationConfig()
+            else
             {
-                Filter = scanFilter,
-                CollectResults = true
-            };
+                AmazonDynamoDBClient client = Methods.AWS.GetDynamoDBClient();
 
-            Search search = table.Scan(config);
+                Table table = Table.LoadTable(client, "Meeting");
+                ScanFilter scanFilter = new ScanFilter();
 
-            var documents = await search.GetNextSetAsync();
+                if (!string.IsNullOrEmpty(state))
+                    scanFilter.AddCondition("State", ScanOperator.Equal, state);
+                if (!string.IsNullOrEmpty(jurisdiction))
+                    scanFilter.AddCondition("Jurisdiction", ScanOperator.Equal, jurisdiction);
+                if (!string.IsNullOrEmpty(meetingType))
+                    scanFilter.AddCondition("MeetingType", ScanOperator.Equal, meetingType);
+                if (!string.IsNullOrEmpty(county))
+                    scanFilter.AddCondition("County", ScanOperator.Equal, county);
+                if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(endDate))
+                    scanFilter.AddCondition("MeetingDate", ScanOperator.Between, startDate, endDate);
+                if (!string.IsNullOrEmpty(tags))
+                {
+                    List<string> tagsList = tags.Split("|").ToList();
 
-            return Ok(documents.ToArray().ToJsonPretty());
+                    foreach (string tag in tagsList)
+                        scanFilter.AddCondition("Tags", ScanOperator.Contains, tag);
+                }
+
+                ScanOperationConfig config = new ScanOperationConfig()
+                {
+                    Limit = 100,
+                    Filter = scanFilter,
+                    CollectResults = true
+                };
+
+                Search search = table.Scan(config);
+
+                var documents = await search.GetNextSetAsync();
+
+                int totalItems = documents.Count;
+                int totalPages = (int)Math.Ceiling(totalItems / (decimal)length) - 1;
+
+                var json = "{currentPage:" + start + ", numberOfPages:" + totalPages + ", itemsPerPage:" + length + ", totalItems:" + totalItems + ", data:" + documents.ToArray().ToList().Skip(length * start).Take(length).ToJsonPretty() + "}";
+                var jObj = Newtonsoft.Json.Linq.JObject.Parse(json);
+                var formatted = jObj.ToString(Newtonsoft.Json.Formatting.Indented);
+
+                return Ok(formatted);
+            }
         }
 
         [HttpGet("{id}")]

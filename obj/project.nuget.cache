@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "x7tU6Frk1t8Vu3vEGMiRPvCNKrs/sQBC5HISD1VtaDU1KjtGZBdVGUyzpfCb8SA1FPo2fykDhBguish3J/jAXQ==",
+  "dgSpecHash": "YvA38Xq1ylwFDzSziO1jGnUTBeTgrUBT6dLHsCq0Zdsy7DPlqfY0En/yLZwoo99bfCZeiAF6y2XCiwCQJVXKOw==",
   "success": true,
   "projectFilePath": "C:\\Users\\SteveBosilovatz\\Desktop\\Personal\\local-govt-reporter-api\\LocalGovtReporterAPI\\LocalGovtReporterAPI.csproj",
   "expectedPackageFiles": [
@@ -21,10 +21,11 @@
     "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.1.0\\microsoft.extensions.logging.abstractions.2.1.0.nupkg.sha512",
     "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.options\\2.1.0\\microsoft.extensions.options.2.1.0.nupkg.sha512",
     "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.extensions.primitives\\2.1.0\\microsoft.extensions.primitives.2.1.0.nupkg.sha512",
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512",
     "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512",
     "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.0\\system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
-    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\3.1.11\\microsoft.netcore.app.host.linux-x64.3.1.11.nupkg.sha512"
+    "C:\\Users\\SteveBosilovatz\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\3.1.12\\microsoft.netcore.app.host.linux-x64.3.1.12.nupkg.sha512"
   ],
   "logs": []
 }

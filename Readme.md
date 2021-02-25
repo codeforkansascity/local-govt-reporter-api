@@ -4,29 +4,34 @@
 
 ### Request
 
-`GET /meetings/`
+`GET /meetings/?start=0&length=25`
 
-    curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/
-    
+    curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?start=0&length=25
+ 
+##### Required Parameters for pagination
+
+###### Start (0 based)
+###### Length (max 100)
+
 ##### Optional Parameters
 
 ###### Jurisdiction
-`GET /meetings/?jurisdiction={jurisdiction}`
+`GET /meetings/?jurisdiction={jurisdiction}&start=0&length=25`
 
-    curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?jurisdiction=KCMO
+    curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?jurisdiction=KCMO&start=0&length=25
     
 ###### State
-`GET /meetings/?state={state}`
+`GET /meetings/?state={state}&start=0&length=25`
 
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?state=MO
     
 ###### County
-`GET /meetings/?county={county}`
+`GET /meetings/?county={county}&start=0&length=25`
 
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?county=Jackson
     
 ###### Meeting Type
-`GET /meetings/?meetingType={meetingType}`
+`GET /meetings/?meetingType={meetingType}&start=0&length=25`
 
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?meetingType=Public%20Works`
     
@@ -36,7 +41,7 @@
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?startDate=2021-02-01&endDate=2021-03-01`
     
 ###### Tags
-`GET /meetings/?tags={tag}`
+`GET /meetings/?tags={tag}&start=0&length=25`
 
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?tags=Special%20Session`
 
@@ -44,7 +49,7 @@
 
 ### Request
 
-`GET /meeting/{meetingID}`
+`GET /meeting/{meetingID}&start=0&length=25`
 
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/KCMO-2021-03-03-KCTGA-Comprehensive-HIV-Prevention-&-Care-Plan
 
