@@ -15,6 +15,16 @@
 
 ##### Optional Parameters
 
+###### Sort By (default = MeetingDate)
+`GET /meetings/?start=0&length=25&sortBy=Jurisdiction`
+
+    curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?start=0&length=25&sortBy=Jurisdiction
+
+###### Sort Direction (default = desc)
+`GET /meetings/?start=0&length=25&sortBy=County&sortDirection=asc`
+
+    curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetings/?start=0&length=25&sortBy=County&sortDirection=asc
+
 ###### Jurisdiction
 `GET /meetings/?jurisdiction={jurisdiction}&start=0&length=25`
 

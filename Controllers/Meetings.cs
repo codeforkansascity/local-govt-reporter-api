@@ -5,6 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Linq.Dynamic.Core;
+using Newtonsoft.Json;
+using LocalGovtReporterAPI.Types;
 
 namespace LocalGovtReporterAPI.Controllers
 {
@@ -13,7 +16,7 @@ namespace LocalGovtReporterAPI.Controllers
     public class Meetings : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string meetingType, string county, string tags, string startDate, string endDate, int start, int length)
+        public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string meetingType, string county, string tags, string startDate, string endDate, int start, int length, string sortBy = "MeetingDate", string sortDirection = "desc")
         {
             if (length > 100)
             {
@@ -58,9 +61,18 @@ namespace LocalGovtReporterAPI.Controllers
                 int totalItems = documents.Count;
                 int totalPages = (int)Math.Ceiling(totalItems / (decimal)length) - 1;
 
-                var json = "{currentPage:" + start + ", numberOfPages:" + totalPages + ", itemsPerPage:" + length + ", totalItems:" + totalItems + ", data:" + documents.ToArray().ToList().Skip(length * start).Take(length).ToJsonPretty() + "}";
-                var jObj = Newtonsoft.Json.Linq.JObject.Parse(json);
-                var formatted = jObj.ToString(Newtonsoft.Json.Formatting.Indented);
+                // get unstructured JSON represention from database
+                string initialJSON = documents.ToArray().ToList().Skip(length * start).Take(length).ToList().ToJson();
+
+                // convert to structured object
+                IEnumerable<Meeting> response = JsonConvert.DeserializeObject<List<Meeting>>(initialJSON);
+
+                // sort based on passed query string params
+                response = response.AsQueryable().OrderBy(string.Format("{0} {1}", sortBy, sortDirection)).ToList();
+
+                var JSON = "{" + string.Format("currentPage:{0}, numberOfPages:{1}, itemsPerPage:{2}, totalItems:{3}, data:{4}", start, totalPages, length, totalItems, JsonConvert.SerializeObject(response)) + "}";
+                var jObj = Newtonsoft.Json.Linq.JObject.Parse(JSON);
+                var formatted = jObj.ToString(Formatting.Indented);
 
                 return Ok(formatted);
             }
