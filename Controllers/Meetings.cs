@@ -62,13 +62,13 @@ namespace LocalGovtReporterAPI.Controllers
                 int totalPages = (int)Math.Ceiling(totalItems / (decimal)length) - 1;
 
                 // get unstructured JSON represention from database
-                string initialJSON = documents.ToArray().ToList().Skip(length * start).Take(length).ToList().ToJson();
+                string initialJSON = documents.ToArray().ToList().ToJson();
 
                 // convert to structured object
                 IEnumerable<Meeting> response = JsonConvert.DeserializeObject<List<Meeting>>(initialJSON);
 
                 // sort based on passed query string params
-                response = response.AsQueryable().OrderBy(string.Format("{0} {1}", sortBy, sortDirection)).ToList();
+                response = response.AsQueryable().OrderBy(string.Format("{0} {1}", sortBy, sortDirection)).Skip(length * start).Take(length);
 
                 var JSON = "{" + string.Format("currentPage:{0}, numberOfPages:{1}, itemsPerPage:{2}, totalItems:{3}, data:{4}", start, totalPages, length, totalItems, JsonConvert.SerializeObject(response)) + "}";
                 var jObj = Newtonsoft.Json.Linq.JObject.Parse(JSON);
