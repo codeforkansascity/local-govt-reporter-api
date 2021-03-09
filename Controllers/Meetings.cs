@@ -18,9 +18,9 @@ namespace LocalGovtReporterAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetMeetingsAsync(string state, string jurisdiction, string meetingType, string county, string tags, string startDate, string endDate, int start, int length, string sortBy = "MeetingDate", string sortDirection = "desc")
         {
-            if (length > 100)
+            if (length > 1000)
             {
-                return BadRequest("Items per page may not exceed 100");
+                return BadRequest("Items per page may not exceed 1000");
             }
             else
             {
@@ -49,7 +49,6 @@ namespace LocalGovtReporterAPI.Controllers
 
                 ScanOperationConfig config = new ScanOperationConfig()
                 {
-                    Limit = 100,
                     Filter = scanFilter,
                     CollectResults = true
                 };

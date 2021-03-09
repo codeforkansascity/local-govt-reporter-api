@@ -11,7 +11,7 @@
 ##### Required Parameters for pagination
 
 ###### Start (0 based)
-###### Length (max 100)
+###### Length (max 1000)
 
 ##### Optional Parameters
 
