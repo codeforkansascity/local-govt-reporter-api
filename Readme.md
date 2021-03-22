@@ -123,4 +123,11 @@
 `GET /states/`
 
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/states/
-   
+
+## Get a list of meeting types
+
+### Request
+
+`GET /meetingtypes/`
+
+    curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetingtypes/
