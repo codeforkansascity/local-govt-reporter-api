@@ -12,7 +12,7 @@ namespace LocalGovtReporterAPI.Methods
 
             #if DEBUG
                 var sharedFile = new SharedCredentialsFile();
-                sharedFile.TryGetProfile("Steve", out var profile);
+                sharedFile.TryGetProfile("localgovt", out var profile);
                 AWSCredentialsFactory.TryGetAWSCredentials(profile, sharedFile, out var credentials);
                 client = new AmazonDynamoDBClient(credentials, RegionEndpoint.USEast2);
             #else
