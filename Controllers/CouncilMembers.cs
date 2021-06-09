@@ -33,7 +33,7 @@ namespace LocalGovtReporterAPI.Controllers
 
             ScanOperationConfig config = new ScanOperationConfig()
             {
-                Filter = scanFilter,
+                //Filter = scanFilter,
                 CollectResults = true
             };
 
@@ -41,8 +41,9 @@ namespace LocalGovtReporterAPI.Controllers
 
             var documents = await search.GetNextSetAsync();
 
-            // get unstructured JSON represention from database
-            string initialJSON = documents.ToArray().ToList().ToJson();
+            var councilmembers = documents.ToArray().ToList().Where(i => i["Jurisdiction"].ToString().Equals(jurisdiction, StringComparison.OrdinalIgnoreCase));
+
+            string initialJSON = councilmembers.ToJson();
 
             // convert to structured object
             IEnumerable<CouncilMember> response = JsonConvert.DeserializeObject<List<CouncilMember>>(initialJSON);
