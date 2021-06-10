@@ -137,3 +137,6 @@
 `GET /CouncilMembers/`
 
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/CouncilMembers/?jurisdiction=Jackson County
+
+Here is a simple application context diagram:
+https://docs.google.com/drawings/d/1OGJkMRAklFfg_ILa40IwgYN1MgCIcZNLoGCAwWHbTPY/edit
