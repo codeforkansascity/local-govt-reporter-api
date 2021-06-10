@@ -131,3 +131,9 @@
 `GET /meetingtypes/`
 
     curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/meetingtypes/
+
+### Request
+
+`GET /CouncilMembers/`
+
+    curl -i -H 'Accept: application/json' https://jt5wf041v4.execute-api.us-east-2.amazonaws.com/Prod/api/CouncilMembers/?jurisdiction=Jackson County
