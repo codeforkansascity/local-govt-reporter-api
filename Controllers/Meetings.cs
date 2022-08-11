@@ -24,9 +24,17 @@ namespace LocalGovtReporterAPI.Controllers
             }
             else
             {
-                AmazonDynamoDBClient client = Methods.AWS.GetDynamoDBClient();
-
-                Table table = Table.LoadTable(client, "Meeting");
+                AmazonDynamoDBClient client = null;
+                Table table = null;
+                try
+                {
+                    client = Methods.AWS.GetDynamoDBClient();
+                    table = Table.LoadTable(client, "Meeting");
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
                 ScanFilter scanFilter = new ScanFilter();
 
                 if (!string.IsNullOrEmpty(state))

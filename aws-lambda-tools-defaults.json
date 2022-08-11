@@ -6,10 +6,10 @@
         "dotnet lambda help",
         "All the command line options for the Lambda command can be specified in this file."
     ],
-    "profile"     : "localgovt",
+    "profile"     : "rob-govreporter",
     "region"      : "us-east-2",
     "configuration" : "Release",
-    "framework"     : "netcoreapp3.1",
+    "framework"     : "net6.0",
     "s3-prefix"     : "LocalGovtReporterAPI/",
     "template"      : "serverless.template",
     "template-parameters" : "",
