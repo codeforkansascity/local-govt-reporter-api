@@ -1,5 +1,7 @@
 # Local Govt Reporter REST API
 
+The live site is here: http://codeforkc.org/local-govt-reporter/#/news
+
 ## Get list of meetings
 
 ### Request
